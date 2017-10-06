@@ -36,6 +36,7 @@ payload = {
 
 r = requests.get(base_url, params = payload)
 x = json.loads(r.text)
+M = []
 for isrc, src in enumerate(x['origin_addresses']):
 				for idst, dst in enumerate(x['destination_addresses']):
                        row = x['rows'][isrc]
