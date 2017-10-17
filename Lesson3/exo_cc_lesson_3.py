@@ -37,13 +37,16 @@ payload = {
 r = requests.get(base_url, params = payload)
 x = json.loads(r.text)
 M = []
-for isrc, src in enumerate(x['origin_addresses']):
-				for idst, dst in enumerate(x['destination_addresses']):
-                       row = x['rows'][isrc]
-                       M.append([row['elements'][i]['distance']['value'] 
-                                    for in i in range(len(row))])
-                    
+for a in enumerate(x['origin_addresses']):
+    for b in enumerate(x['destination_addresses']):
+        row = x['rows'][a]
+        M.append([row['elements'][i]['distance']['value'] for i in range(len(row))])
+    
 M2 = np.array(M)
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 
 
 
